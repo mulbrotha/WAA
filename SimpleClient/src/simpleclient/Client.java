@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,8 +22,7 @@ public class Client {
     private String host = "127.0.0.1";
     private int port = 8181;
     boolean autoFlush = true;
-    String defaultPage = "page1.html";
-    
+    String pagerequest=JOptionPane.showInputDialog("Input client page");
     public void start() {
         Socket socket = makeRequest();
         System.out.println("Socket created");
@@ -34,7 +34,7 @@ public class Client {
         try {
             socket = new Socket(host, port);
             PrintWriter out = new PrintWriter(socket.getOutputStream(), autoFlush);
-            out.println(defaultPage);
+            out.println(pagerequest);
             out.println("Host: "+host+":"+port);
             out.println("Connection: Close");
             out.println("");
