@@ -21,7 +21,7 @@ public class Client {
     private String host = "127.0.0.1";
     private int port = 8181;
     boolean autoFlush = true;
-    String defaultPage = "index.html";
+    String defaultPage = "page1.html";
     
     public void start() {
         Socket socket = makeRequest();
